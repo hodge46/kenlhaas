@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>OG image template — screenshot the card below at 1200×630</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --brand:#2563eb; --brand-light:#7cb0ff; --brand-50:#eff5ff; --brand-100:#dbe9ff;
+    --ink:#14143a; --ink-soft:#3a3a5c;
+    --font-head:"Poppins","Segoe UI",system-ui,sans-serif;
+    --font-body:"Inter","Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#4b5563;font-family:var(--font-body);padding:40px;display:flex;flex-direction:column;align-items:center;gap:20px}
+  .note{color:#e5e7eb;font-size:14px;max-width:1200px;line-height:1.6}
+  .note b{color:#fff}
+  .note code{background:#111827;padding:2px 6px;border-radius:4px}
+
+  /* ==== THE CARD — capture this element as a 1200x630 PNG ==== */
+  #og{
+    width:1200px;height:630px;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#ffffff 0%, var(--brand-50) 100%);
+    font-family:var(--font-body);
+  }
+  #og .rings{position:absolute;top:-140px;right:-120px;width:680px;height:680px;color:var(--brand)}
+  #og .rings circle{fill:none;stroke:currentColor;stroke-width:2}
+  #og .dotcol{position:absolute;left:56px;top:56px;width:150px;height:130px;
+    background-image:radial-gradient(var(--brand-light) 2px, transparent 2px);background-size:20px 20px;opacity:.6}
+  #og .inner{position:absolute;inset:0;padding:88px 96px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+  #og .badge{display:inline-flex;align-items:center;gap:16px;margin-bottom:10px}
+  #og .kh{display:grid;place-items:center;width:64px;height:64px;border-radius:16px;
+    background:linear-gradient(135deg,var(--brand),var(--brand-light));color:#fff;font-family:var(--font-head);font-weight:800;font-size:26px;letter-spacing:1px}
+  #og .kh-name{font-family:var(--font-head);font-weight:700;font-size:26px;color:var(--ink)}
+  #og h1{font-family:var(--font-head);font-weight:800;font-size:104px;line-height:.98;letter-spacing:-2px;color:var(--ink)}
+  #og .roles{margin-top:22px;font-size:30px;font-weight:500;color:var(--brand)}
+  #og .status{margin-top:26px;display:inline-flex;align-items:center;gap:14px;font-size:24px;font-weight:600;color:var(--ink-soft)}
+  #og .dot{width:14px;height:14px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 5px rgba(22,163,74,.22)}
+</style>
+</head>
+<body>
+  <p class="note">
+    <b>How to use:</b> Open this file in Chrome. Right-click the card &rarr; <b>Inspect</b> &rarr; in the
+    Elements panel right-click the <code>&lt;div id="og"&gt;</code> node &rarr; <b>Capture node screenshot</b>.
+    It saves a pixel-perfect <b>1200&times;630 PNG</b>. Save it as
+    <code>assets/img/og-image.png</code>. (Or screenshot the card any other way at that size.)
+  </p>
+
+  <div id="og">
+    <svg class="rings" viewBox="0 0 680 680"><circle cx="360" cy="320" r="300" opacity=".14"/><circle cx="360" cy="320" r="210" opacity=".24"/><circle cx="360" cy="320" r="210" fill="var(--brand)" opacity=".05" stroke="none"/></svg>
+    <div class="dotcol"></div>
+    <div class="inner">
+      <div class="badge">
+        <span class="kh">KH</span>
+        <span class="kh-name">Kenny Haas</span>
+      </div>
+      <h1>Kenny Haas</h1>
+      <div class="roles">Learning Technologist &nbsp;&middot;&nbsp; Learning Experience Developer <br /> eLearning Developer &nbsp;&middot;&nbsp; Web Designer</div>
+      <div class="status"><span class="dot"></span> 22+ years &middot; 16 fully remote &middot; Open to remote roles</div>
+    </div>
+  </div>
+</body>
+</html>

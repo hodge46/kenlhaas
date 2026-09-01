@@ -1,0 +1,15 @@
+# Vercel
+.vercel
+
+# Env / secrets
+.env*
+
+# Editor / tooling
+.claude/
+
+# Dependencies (if a build step is ever added)
+node_modules/
+
+# OS cruft
+.DS_Store
+Thumbs.db
