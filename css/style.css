@@ -3,11 +3,13 @@
    ========================================================= */
 
 :root {
+  color-scheme: light;
+
   --brand:         #2563eb;
-  --brand-dark:    #1d4ed8;
+  --brand-dark:    #1d4ed8;   /* hover accent */
   --brand-light:   #7cb0ff;
-  --brand-50:      #eff5ff;
-  --brand-100:     #dbe9ff;
+  --brand-50:      #eff5ff;   /* tinted surface: section bg, resume panel, hover fills */
+  --brand-100:     #dbe9ff;   /* icon-chip bg */
   --ink:           #14143a;
   --ink-soft:      #3a3a5c;
   --body:          #5b5b74;
@@ -15,6 +17,16 @@
   --white:         #ffffff;
   --bg:            #ffffff;
   --bg-alt:        #f7f9fe;
+
+  --surface:       #ffffff;   /* cards, panels, mobile nav */
+  --surface-2:     #f3f4f8;   /* modal stage, photo frame */
+  --header-bg:     rgba(255, 255, 255, .85);
+  --hero-top:      #ffffff;   /* hero gradient top */
+  --thumb-bg:      #eef4ff;   /* project screenshot backdrop */
+  --hover-bg:      #f1f0f7;   /* subtle hover surface */
+  --muted:         #9aacc8;   /* placeholder / fallback text */
+  --footer-bg:     #14143a;
+  --footer-fg:     #b9b7d6;
 
   --accent-violet: #7c3aed;
   --accent-orange: #f0842b;
@@ -33,6 +45,50 @@
 
   --font-head: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* ---------- Dark theme ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --brand:         #5b9dff;
+  --brand-dark:    #82b6ff;   /* hover = brighter on dark */
+  --brand-light:   #6f9de8;
+  --brand-50:      #172032;
+  --brand-100:     #1f2c48;
+  --ink:           #f2f4fb;
+  --ink-soft:      #c2c8dd;
+  --body:          #9aa1bb;
+  --line:          #2a3350;
+  --bg:            #0f1220;
+  --bg-alt:        #12162a;
+
+  --surface:       #171c2e;
+  --surface-2:     #10131f;
+  --header-bg:     rgba(15, 18, 32, .82);
+  --hero-top:      #0d0f18;
+  --thumb-bg:      #0e1626;
+  --hover-bg:      #20263c;
+  --muted:         #5a6178;
+  --footer-bg:     #0a0c14;
+  --footer-fg:     #8b90a8;
+
+  --shadow-sm:     0 1px 3px rgba(0, 0, 0, .4), 0 1px 2px rgba(0, 0, 0, .3);
+  --shadow-md:     0 10px 30px rgba(0, 0, 0, .45);
+  --shadow-lg:     0 24px 60px rgba(0, 0, 0, .55);
+}
+
+/* Smooth colour fade only while the toggle is flipping (JS adds/removes .theme-anim) */
+.theme-anim,
+.theme-anim *,
+.theme-anim *::before,
+.theme-anim *::after {
+  transition: background-color .3s var(--ease),
+              border-color .3s var(--ease),
+              color .3s var(--ease),
+              fill .3s var(--ease),
+              stroke .3s var(--ease),
+              box-shadow .3s var(--ease) !important;
 }
 
 /* ---------- Reset ---------- */
@@ -96,7 +152,7 @@ ul { list-style: none; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, .85);
+  background: var(--header-bg);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid transparent;
   transition: box-shadow .25s var(--ease), border-color .25s var(--ease);
@@ -168,6 +224,26 @@ ul { list-style: none; }
 }
 .header-social:hover { color: var(--brand); background: var(--brand-50); }
 .header-social svg { width: 20px; height: 20px; }
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color .18s var(--ease), background .18s var(--ease);
+}
+.theme-toggle:hover { color: var(--brand); background: var(--brand-50); }
+.theme-toggle svg { width: 20px; height: 20px; }
+.theme-toggle .tt-sun { display: none; }
+.theme-toggle .tt-moon { display: block; }
+:root[data-theme="dark"] .theme-toggle .tt-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .tt-moon { display: none; }
 
 .nav-toggle {
   display: none;
@@ -253,7 +329,7 @@ ul { list-style: none; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  background: linear-gradient(180deg, #fff 0%, var(--brand-50) 100%);
+  background: linear-gradient(180deg, var(--hero-top) 0%, var(--brand-50) 100%);
   padding: 90px 0 110px;
 }
 .hero-inner { position: relative; z-index: 1; }
@@ -357,7 +433,7 @@ ul { list-style: none; }
   margin: 10px auto;
   border-radius: 50%;
   overflow: hidden;
-  background: #e6eefc;
+  background: var(--surface-2);
   box-shadow: var(--shadow-md);
   display: grid;
   place-items: center;
@@ -369,7 +445,7 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  color: #9aacc8;
+  color: var(--muted);
   font-size: .82rem;
   font-weight: 600;
   letter-spacing: .1em;
@@ -464,7 +540,7 @@ ul { list-style: none; }
 }
 .project-card {
   position: relative;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 22px;
@@ -528,7 +604,7 @@ ul { list-style: none; }
   border-radius: var(--radius-sm);
   overflow: hidden;
   aspect-ratio: 1920 / 912;
-  background: linear-gradient(135deg, #eef4ff, #dce8ff);
+  background: var(--thumb-bg);
   margin-bottom: 16px;
 }
 .project-thumb img {
@@ -547,7 +623,7 @@ ul { list-style: none; }
   inset: 0;
   align-items: center;
   justify-content: center;
-  color: #9aacc8;
+  color: var(--muted);
   font-size: .78rem;
   font-weight: 600;
   letter-spacing: .16em;
@@ -639,7 +715,7 @@ ul { list-style: none; }
   gap: 22px;
 }
 .contact-item {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 30px 26px;
@@ -686,8 +762,8 @@ ul { list-style: none; }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  background: var(--ink);
-  color: #b9b7d6;
+  background: var(--footer-bg);
+  color: var(--footer-fg);
   padding: 30px 0;
 }
 .footer-inner {
@@ -797,7 +873,7 @@ body.pdf-open { overflow: hidden; }
 .pdf-modal__panel {
   width: min(1320px, 100%);
   height: min(92vh, 100%);
-  background: #fff;
+  background: var(--surface);
   border-radius: 16px;
   box-shadow: var(--shadow-lg);
   display: flex;
@@ -861,13 +937,13 @@ body.pdf-open { overflow: hidden; }
   cursor: pointer;
   transition: background .15s var(--ease), color .15s var(--ease);
 }
-.pdf-modal__close:hover { background: #f1f0f7; color: var(--ink); }
+.pdf-modal__close:hover { background: var(--hover-bg); color: var(--ink); }
 .pdf-modal__close svg { width: 20px; height: 20px; }
 
 .pdf-modal__stage {
   flex: 1 1 auto;
   min-height: 0;
-  background: #f3f4f8;
+  background: var(--surface-2);
 }
 .pdf-modal__frame {
   width: 100%;
@@ -898,7 +974,7 @@ body.pdf-open { overflow: hidden; }
     top: 74px; left: 0; right: 0;
     flex-direction: column;
     gap: 0;
-    background: #fff;
+    background: var(--surface);
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow-md);
     padding: 8px 24px 16px;

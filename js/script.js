@@ -45,6 +45,47 @@
     });
   });
 
+  /* ---- Dark / light theme toggle ---- */
+  var themeToggle = document.getElementById("themeToggle");
+  if (themeToggle) {
+    var root = document.documentElement;
+    var darkMq = window.matchMedia("(prefers-color-scheme: dark)");
+    var reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    var currentTheme = function () {
+      return root.getAttribute("data-theme") || (darkMq.matches ? "dark" : "light");
+    };
+    var applyTheme = function (t, persist) {
+      root.setAttribute("data-theme", t);
+      themeToggle.setAttribute(
+        "aria-label",
+        t === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      );
+      if (persist) {
+        try { localStorage.setItem("theme", t); } catch (e) {}
+      }
+    };
+
+    applyTheme(currentTheme(), false); // sync the aria-label with the pre-paint choice
+
+    themeToggle.addEventListener("click", function () {
+      if (!reduceMq.matches) {
+        root.classList.add("theme-anim");
+        window.setTimeout(function () { root.classList.remove("theme-anim"); }, 340);
+      }
+      applyTheme(currentTheme() === "dark" ? "light" : "dark", true);
+    });
+
+    // follow the OS setting only until the user picks a theme themselves
+    darkMq.addEventListener("change", function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (err) {}
+      if (saved !== "light" && saved !== "dark") {
+        applyTheme(e.matches ? "dark" : "light", false);
+      }
+    });
+  }
+
   /* ---- Mobile nav toggle ---- */
   if (navToggle && nav) {
     navToggle.addEventListener("click", function () {
