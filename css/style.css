@@ -991,7 +991,8 @@ ul { list-style: none; }
 .js .cs-hero .cs-eyebrow,
 .js .cs-hero h1,
 .js .cs-hero .cs-lede,
-.js .cs-hero .cs-meta {
+.js .cs-hero .cs-meta,
+.js .cs-hero .cs-cta {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity .6s var(--ease), transform .6s var(--ease);
@@ -1000,7 +1001,8 @@ ul { list-style: none; }
 .js .cs-hero .cs-eyebrow.intro-in,
 .js .cs-hero h1.intro-in,
 .js .cs-hero .cs-lede.intro-in,
-.js .cs-hero .cs-meta.intro-in {
+.js .cs-hero .cs-meta.intro-in,
+.js .cs-hero .cs-cta.intro-in {
   opacity: 1;
   transform: none;
 }
@@ -1189,6 +1191,7 @@ body.pdf-open { overflow: hidden; }
   .js .cs-hero h1,
   .js .cs-hero .cs-lede,
   .js .cs-hero .cs-meta,
+  .js .cs-hero .cs-cta,
   .js .project-thumb img { opacity: 1; transform: none; }
   * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }
@@ -1278,6 +1281,9 @@ body.pdf-open { overflow: hidden; }
 @media (max-width: 720px) {
   .cs-meta { grid-template-columns: 1fr; }
 }
+
+.cs-cta { margin-top: 28px; }
+.cs-cta svg { width: 15px; height: 15px; }
 
 .cs-body { max-width: 780px; margin-inline: auto; }
 

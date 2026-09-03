@@ -37,7 +37,8 @@
     [document.querySelector(".cs-hero .cs-eyebrow"), 0.08],
     [document.querySelector(".cs-hero h1"), 0.14],
     [document.querySelector(".cs-hero .cs-lede"), 0.22],
-    [document.querySelector(".cs-hero .cs-meta"), 0.3]
+    [document.querySelector(".cs-hero .cs-meta"), 0.3],
+    [document.querySelector(".cs-hero .cs-cta"), 0.37]
   ].filter(function (s) { return s[0]; });
 
   requestAnimationFrame(function () {
