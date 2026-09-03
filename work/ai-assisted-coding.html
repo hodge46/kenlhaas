@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Assisted Coding &mdash; Case Study &mdash; Kenny Haas</title>
+  <meta name="description" content="Case study: building a polished, responsive, bilingual employee resource site through AI-assisted development with Claude &mdash; from a visual mockup to a page live in the LMS." />
+
+  <link rel="canonical" href="https://www.klhaas.com/work/ai-assisted-coding.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.klhaas.com/work/ai-assisted-coding.html" />
+  <meta property="og:title" content="AI-Assisted Coding &mdash; Case Study &mdash; Kenny Haas" />
+  <meta property="og:description" content="Building a responsive, bilingual employee resource site through AI-assisted development with Claude." />
+  <meta property="og:image" content="https://www.klhaas.com/assets/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI-Assisted Coding &mdash; Case Study &mdash; Kenny Haas" />
+  <meta name="twitter:description" content="Building a responsive, bilingual employee resource site through AI-assisted development with Claude." />
+  <meta name="twitter:image" content="https://www.klhaas.com/assets/img/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='16' font-weight='700' fill='white' text-anchor='middle'%3EKH%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-badge">KH</span>
+        <span class="logo-text">Kenny Haas</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#testimonials">Testimonials</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode">
+        <svg class="tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+
+      <a href="https://www.linkedin.com/in/kenny-haas" class="header-social" target="_blank" rel="noopener" aria-label="Kenny Haas on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 17V10.4H6.16V17h2.18zM7.25 9.4a1.27 1.27 0 1 0 0-2.54 1.27 1.27 0 0 0 0 2.54zM18 17v-3.62c0-1.94-1.04-2.85-2.42-2.85a2.09 2.09 0 0 0-1.9 1.04V10.4h-2.17c.03.61 0 6.6 0 6.6h2.17v-3.69c0-.2.01-.39.07-.53.16-.39.51-.79 1.11-.79.79 0 1.1.6 1.1 1.47V17H18z"/></svg>
+      </a>
+
+      <a href="../index.html#contact" class="btn btn-primary header-cta">Let&rsquo;s Connect</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="cs-main">
+
+    <section class="cs-hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="dot-grid dot-grid-hero"></span>
+        <svg class="hero-deco" viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <pattern id="csHeroDots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle class="hd-fill" cx="2" cy="2" r="2"></circle>
+            </pattern>
+          </defs>
+          <rect x="250" y="0" width="270" height="150" fill="url(#csHeroDots)" opacity="0.18"></rect>
+          <circle class="hd-ring" cx="360" cy="210" r="200" opacity="0.16"></circle>
+          <circle class="hd-ring" cx="360" cy="210" r="140" opacity="0.28"></circle>
+          <circle class="hd-fill" cx="360" cy="210" r="140" opacity="0.05"></circle>
+          <circle class="hd-fill" cx="500" cy="120" r="12"></circle>
+          <circle class="hd-dot-lt" cx="235" cy="330" r="7"></circle>
+        </svg>
+      </div>
+      <div class="container">
+        <a href="../index.html#projects" class="cs-back"><span aria-hidden="true">&larr;</span> Back to projects</a>
+        <p class="cs-eyebrow">Case Study</p>
+        <h1>AI-Assisted Coding: AI Learning Resources Web Page</h1>
+        <p class="cs-lede">Building a polished, responsive, bilingual employee resource site through AI-assisted development with Claude &mdash; from a visual mockup to a page live in the LMS, in a fraction of the usual hand-coding time.</p>
+
+        <dl class="cs-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Learning Experience Developer / Web Designer</dd>
+          </div>
+          <div>
+            <dt>Primary Tools</dt>
+            <dd>Claude &middot; HTML &middot; CSS &middot; JavaScript &middot; Google Analytics</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>AI-Assisted Development &middot; Responsive Design &middot; French Localization &middot; Analytics</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="cs-body">
+
+        <figure class="cs-figure cs-reveal">
+          <img class="cs-img" src="../assets/case-studies/ai-assisted-coding/resource-page.jpg" alt="The AI Learning Resources page, a clean resource hub organizing AI learning links into sections" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+          <div class="cs-shot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+            <span>The AI Learning Resources page</span>
+            <small>Screenshot</small>
+          </div>
+          <figcaption>A single, clean hub that organizes AI learning opportunities into onboarding, on-the-job, and explore-further sections.</figcaption>
+        </figure>
+
+        <section class="cs-section cs-reveal">
+          <h2>The Challenge</h2>
+          <p>Employees needed a centralized, easy-to-use web page where they could quickly find AI learning resources. The aim was a polished experience that could be built quickly and distributed broadly through the organization&rsquo;s LMS.</p>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>My Approach</h2>
+          <p>I developed the page entirely through AI-assisted coding, with Claude as the primary development partner. I started by giving Claude a visual mockup of the layout I wanted, along with the page content and links to the resources. I prompted Claude to create the initial HTML page; it generated the HTML, CSS, and JavaScript, and I made only minor edits. Several iterative prompts then refined the design and functionality.</p>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Behind the Experience</h2>
+          <div class="cs-flow" aria-hidden="true">
+            <div class="cs-step">Visual<br>mockup</div>
+            <div class="cs-step">Claude generates<br>HTML/CSS/JS</div>
+            <div class="cs-step">Iterative<br>refinement</div>
+            <div class="cs-step">Responsive<br>+ French</div>
+            <div class="cs-step">Hosted in<br>the LMS</div>
+          </div>
+          <p>The page went from a static mockup to a responsive, bilingual site &mdash; generated by Claude, refined through prompting, hosted on a web server, delivered through the LMS, and tracked with Google Analytics.</p>
+          <figure class="cs-figure">
+            <img class="cs-img" src="../assets/case-studies/ai-assisted-coding/language-modal.jpg" alt="The language-selection modal offering English or French" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+            <div class="cs-shot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+              <span>Language-selection modal (English / Fran&ccedil;ais)</span>
+              <small>Screenshot</small>
+            </div>
+            <figcaption>Prompted into the build so the page could serve both English and French audiences.</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Learner Experience</h2>
+          <p>The page is a simple resource hub that gathers AI learning opportunities in one place. Employees browse the resources and follow links to the corresponding content, with an interface designed to be visually clear and easy to navigate. I also prompted Claude to make it responsive for mobile and to add the language-selection modal for French. The final page was hosted on a web server and delivered through the organization&rsquo;s LMS.</p>
+          <figure class="cs-figure">
+            <img class="cs-img" src="../assets/case-studies/ai-assisted-coding/mobile-view.jpg" alt="The resource page in its responsive mobile layout" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+            <div class="cs-shot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+              <span>Responsive mobile layout</span>
+              <small>Screenshot</small>
+            </div>
+            <figcaption>Prompted refinements adapted the layout so the resource experience worked across screen sizes.</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Technology &amp; Development</h2>
+          <div class="cs-tech">
+            <div>
+              <h3>Claude / AI-Assisted Coding</h3>
+              <p>Generated the complete HTML, CSS, and JavaScript, refined through several rounds of iterative prompting.</p>
+            </div>
+            <div>
+              <h3>Responsive Design</h3>
+              <p>Prompted Claude to adapt the page for mobile so the experience held up across screen sizes.</p>
+            </div>
+            <div>
+              <h3>Language Support</h3>
+              <p>Added a language-selection modal and a French translation of the page.</p>
+            </div>
+            <div>
+              <h3>Analytics + LMS Delivery</h3>
+              <p>Hosted on a web server, delivered through the LMS, with Google Analytics tracking page usage.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Business Impact</h2>
+          <ul class="cs-impact">
+            <li>Created a polished AI learning-resource hub without hand-coding the full HTML, CSS, and JavaScript solution.</li>
+            <li>Used Claude to dramatically reduce development time while keeping control of layout, content, and UX through iterative prompts.</li>
+            <li>Expanded reach by making the page responsive for mobile and adding French language support.</li>
+            <li>Published the page through the organization&rsquo;s LMS, making the resources easy for employees to find.</li>
+            <li>Integrated Google Analytics to capture usage data and support analysis of employee engagement.</li>
+          </ul>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>What I Learned</h2>
+          <blockquote class="cs-quote">
+            <p>This project showed how AI-assisted coding can dramatically accelerate web development when you can clearly define the experience, provide a strong visual starting point, and iteratively direct the AI. Using Claude to generate the HTML, CSS, and JavaScript, I built the page in a small fraction of the time hand-coding would have taken.</p>
+          </blockquote>
+        </section>
+
+      </div>
+    </div>
+
+    <nav class="cs-pager">
+      <div class="container">
+        <a href="../index.html#projects"><span aria-hidden="true">&larr;</span> All projects</a>
+        <a href="xapi.html">Next case study <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-badge">KH</span>
+        <span class="logo-text">Kenny Haas</span>
+      </a>
+      <p>&copy; <span id="year"></span> Kenny Haas</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    (function () {
+      var els = document.querySelectorAll(".cs-reveal");
+      if (!els.length) return;
+      if (!("IntersectionObserver" in window)) {
+        Array.prototype.forEach.call(els, function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add("is-visible"); obs.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

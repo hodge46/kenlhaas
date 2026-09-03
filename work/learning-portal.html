@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Portal Development &mdash; Case Study &mdash; Kenny Haas</title>
+  <meta name="description" content="Case study: custom in-house learning portals built in Articulate Storyline as the front door to the company's core programs &mdash; 15+ builds, a Veracity LRS data layer, and persistent cross-session progress tracking." />
+
+  <link rel="canonical" href="https://www.klhaas.com/work/learning-portal.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.klhaas.com/work/learning-portal.html" />
+  <meta property="og:title" content="Learning Portal Development &mdash; Case Study &mdash; Kenny Haas" />
+  <meta property="og:description" content="Custom in-house learning portals built in Articulate Storyline as the front door to the company's core programs, with a Veracity LRS data layer and persistent progress tracking." />
+  <meta property="og:image" content="https://www.klhaas.com/assets/img/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Learning Portal Development &mdash; Case Study &mdash; Kenny Haas" />
+  <meta name="twitter:description" content="Custom in-house learning portals built in Articulate Storyline, with a Veracity LRS data layer and persistent progress tracking." />
+  <meta name="twitter:image" content="https://www.klhaas.com/assets/img/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    // Set the theme before first paint so there's no flash.
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='16' font-weight='700' fill='white' text-anchor='middle'%3EKH%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-badge">KH</span>
+        <span class="logo-text">Kenny Haas</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#testimonials">Testimonials</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode">
+        <svg class="tt-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="tt-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+
+      <a href="https://www.linkedin.com/in/kenny-haas" class="header-social" target="_blank" rel="noopener" aria-label="Kenny Haas on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 17V10.4H6.16V17h2.18zM7.25 9.4a1.27 1.27 0 1 0 0-2.54 1.27 1.27 0 0 0 0 2.54zM18 17v-3.62c0-1.94-1.04-2.85-2.42-2.85a2.09 2.09 0 0 0-1.9 1.04V10.4h-2.17c.03.61 0 6.6 0 6.6h2.17v-3.69c0-.2.01-.39.07-.53.16-.39.51-.79 1.11-.79.79 0 1.1.6 1.1 1.47V17H18z"/></svg>
+      </a>
+
+      <a href="../index.html#contact" class="btn btn-primary header-cta">Let&rsquo;s Connect</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="cs-main">
+
+    <!-- ===== Case-study hero ===== -->
+    <section class="cs-hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="dot-grid dot-grid-hero"></span>
+        <svg class="hero-deco" viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <pattern id="csHeroDots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle class="hd-fill" cx="2" cy="2" r="2"></circle>
+            </pattern>
+          </defs>
+          <rect x="250" y="0" width="270" height="150" fill="url(#csHeroDots)" opacity="0.18"></rect>
+          <circle class="hd-ring" cx="360" cy="210" r="200" opacity="0.16"></circle>
+          <circle class="hd-ring" cx="360" cy="210" r="140" opacity="0.28"></circle>
+          <circle class="hd-fill" cx="360" cy="210" r="140" opacity="0.05"></circle>
+          <circle class="hd-fill" cx="500" cy="120" r="12"></circle>
+          <circle class="hd-dot-lt" cx="235" cy="330" r="7"></circle>
+        </svg>
+      </div>
+      <div class="container">
+        <a href="../index.html#projects" class="cs-back"><span aria-hidden="true">&larr;</span> Back to projects</a>
+        <p class="cs-eyebrow">Case Study</p>
+        <h1>Learning Portal Development</h1>
+        <p class="cs-lede">Custom learning portals built as the front door to the company&rsquo;s core programs &mdash; trading the limits of the LMS for full control of the look, layout, and functionality. More than 15 builds, brought in-house, with a Veracity LRS layer that keeps learner progress across sessions.</p>
+
+        <dl class="cs-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Learning Technologist / Learning Experience Developer / eLearning Developer / Web Designer</dd>
+          </div>
+          <div>
+            <dt>Primary Tools</dt>
+            <dd>PowerPoint &middot; Articulate Storyline &middot; JavaScript &middot; xAPI &middot; LRS (Veracity)</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>UX/UI &middot; Learning Portals &middot; In-House Development &middot; Progress Tracking</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="cs-body">
+
+        <figure class="cs-figure cs-reveal">
+          <img class="cs-img" src="../assets/case-studies/learning-portal/portal-home.jpg" alt="A learning portal home page, with program content organized into a Getting Started section and numbered phases across the top" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+          <div class="cs-shot" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+            <span>A portal home page &mdash; content organized into phases</span>
+            <small>Screenshot &middot; portal-home.jpg</small>
+          </div>
+          <figcaption>A portal home page: the program broken into a Getting Started section and sequential phases, each with progress checkboxes.</figcaption>
+        </figure>
+
+        <section class="cs-section cs-reveal">
+          <h2>The Challenge</h2>
+          <p>Our learning programs were missing a front door &mdash; a way to drive the learning experience in an intuitive, meaningful way. The LMS itself was very limited: there was little you could do to control the layout, the look and feel, or the functionality of a program built inside it.</p>
+          <p>So we came up with the idea of building custom learning portals &mdash; websites that would serve as the front door to our core programs. A portal let us fully control the learning experience: a custom look and feel, a deliberate layout, and whatever functionality the program needed. Each one gave learners a centralized, streamlined place to access all of a program&rsquo;s training content.</p>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Bringing Portal Development In-House</h2>
+          <p>When we first started, several years ago, we hired an external vendor to build the first couple of portals. It was costly and time-consuming, with a lot of back-and-forth.</p>
+          <p>With my background in web design and eLearning development, I suggested I could build the portals in-house instead. That reduced our reliance on external vendors and saved the organization hundreds of thousands of dollars in development costs &mdash; and it sped things up considerably, with no vendor conversations to schedule around.</p>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Why Articulate Storyline</h2>
+          <p>I chose Articulate Storyline to build the portals because it simplified both development and maintenance. I could stand up a portal quickly and update it easily as a program changed. It also allowed me to more easily create custom functionality. Rather than using Storyline only for traditional course development, I extended it with variables, triggers, JavaScript, xAPI, and an LRS to create a more application-like learner experience.</p>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Designing Each Portal</h2>
+          <p>Over the years I designed and developed more than 15 learning portals for programs across the company, and maintained each one &mdash; adding new content and features over time.</p>
+          <p>Every portal started with structure. I worked with the business owner and design team to plan how the program should be organized, creating an outline that grouped all the content into categories and phases so learners could progress through it clearly.</p>
+
+          <p>From that outline, I used my UI/UX background to create custom visual mockups for the portal&rsquo;s layout and look and feel. Many portals had a distinct visual identity aligned to what they taught. For speed and simplicity, I built the mockups in PowerPoint, shared them with the project team, and refined them until we were happy. The approved mockup became the blueprint for the build.</p>
+
+          <p>I handled all of the development, building out every one of the 15+ portals in Articulate Storyline.</p>
+
+          <figure class="cs-figure">
+            <img class="cs-img" src="../assets/case-studies/learning-portal/portal-look-and-feel.jpg" alt="Two learning portals side by side, each with a distinct visual identity aligned to its program" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+            <div class="cs-shot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+              <span>Insert screenshot: two portals with distinct looks</span>
+              <small>portal-look-and-feel.jpg</small>
+            </div>
+            <figcaption>Portals for different programs, each with its own visual identity aligned to the content it taught.</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>A Data Layer for Learning and Persistent Learner Progress</h2>
+          <p>Over time I implemented and administered xAPI and a Learning Record Store (Veracity), including custom reporting dashboards used to analyze learner activity within the portals.</p>
+          <p>As my xAPI skills grew, I built custom progress-tracking functionality. Learners could see at a glance which activities they had completed using interactive checkboxes within the portal. Completion information was stored in the LRS and retrieved through JavaScript when a learner returned, so progress persisted across browser sessions. I leveraged AI-assisted coding to develop this functionality.</p>
+          <p>This allowed the portal to function as more than a collection of links &mdash; it became a centralized learning experience with built-in progress tracking.</p>
+       
+          <figure class="cs-figure">
+            <img class="cs-img" src="../assets/case-studies/learning-portal/getting-started-checkboxes.jpg" alt="A portal section with a row of completion checkboxes beneath each activity" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+            <div class="cs-shot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+              <span>Insert screenshot: completion checkboxes in a portal</span>
+              <small>getting-started-checkboxes.jpg</small>
+            </div>
+            <figcaption>Learners check off activities; state is saved to the LRS and restored automatically on their next visit.</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Behind the Experience</h2>
+          <div class="cs-flow" aria-hidden="true">
+            <div class="cs-step">Learner</div>
+            <div class="cs-step">Storyline portal</div>
+            <div class="cs-step">xAPI</div>
+            <div class="cs-step">LRS (Veracity)</div>
+            <div class="cs-step">JavaScript &rarr; Storyline</div>
+          </div>
+          <p>Learner activity is captured through the portal, recorded through xAPI in the LRS, and retrieved by JavaScript so the Storyline experience can reflect persistent progress.</p>
+
+          <figure class="cs-figure">
+            <img class="cs-img cs-img--sm" src="../assets/case-studies/learning-portal/xapi-statement.jpg" alt="A custom xAPI statement in the editor alongside the JavaScript that reads it back from the LRS" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+            <div class="cs-shot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+              <span>Insert screenshot: xAPI statement &amp; the JavaScript that reads it</span>
+              <small>xapi-statement.jpg</small>
+            </div>
+            <figcaption>Each checkbox writes a custom xAPI statement to the LRS; a small JavaScript routine queries it back on load to rebuild the learner&rsquo;s state.</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Technology &amp; Development</h2>
+          <div class="cs-tech">
+            <div>
+              <h3>Articulate Storyline</h3>
+              <p>The build platform for every portal &mdash; layout, navigation, interactions, and custom behavior through triggers and variables. Fast to create, easy to maintain.</p>
+            </div>
+            <div>
+              <h3>JavaScript</h3>
+              <p>Extended Storyline past its defaults and retrieved learner completion data from the LRS to persist progress between browser sessions. Developed with AI-assisted coding.</p>
+            </div>
+            <div>
+              <h3>xAPI / LRS (Veracity)</h3>
+              <p>Implemented and administered the data layer that captured portal activity and fed custom reporting dashboards.</p>
+            </div>
+            <div>
+              <h3>UX/UI Design</h3>
+              <p>Custom visual mockups in PowerPoint set each portal&rsquo;s structure and look and feel, often themed to the program it taught.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>Business Impact</h2>
+          <ul class="cs-impact">
+            <li>Replaced the constraints of the LMS with custom portals that gave full control of the learning experience &mdash; look and feel, layout, and functionality.</li>
+            <li>Brought portal development in-house after a vendor built the first few, cutting reliance on external vendors, speeding up delivery, and saving the organization hundreds of thousands of dollars in development costs.</li>
+            <li>Designed and developed 15+ learning portals for programs across the company, and maintained each over time with new content and features.</li>
+            <li>Implemented and administered xAPI and a Veracity LRS, with custom reporting dashboards for analyzing learner activity across the portals.</li>
+            <li>Built persistent learner progress tracking &mdash; completion data stored in the LRS and retrieved by JavaScript so progress follows the learner across sessions.</li>
+          </ul>
+
+          <figure class="cs-figure">
+            <img class="cs-img" src="../assets/case-studies/learning-portal/lrs-dashboard.jpg" alt="A custom LRS reporting dashboard showing portal visits over time and activity hit counts" loading="lazy" onerror="this.closest('.cs-figure').classList.add('cs-img-missing')" />
+            <div class="cs-shot" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4.5-4.5L5 21"/></svg>
+              <span>Insert screenshot: custom LRS reporting dashboard</span>
+              <small>lrs-dashboard.jpg</small>
+            </div>
+            <figcaption>Dashboards built on the Veracity LRS data for reviewing portal activity and engagement across programs.</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section cs-reveal">
+          <h2>What I Learned</h2>
+          <blockquote class="cs-quote">
+            <p>This work pushed my role well beyond traditional eLearning and Storyline development. It reinforced the value of combining learning design with web design, UX/UI, technology, and data &mdash; and showed that Storyline, paired with JavaScript, xAPI, and an LRS, can support far more than traditional courses.</p>
+          </blockquote>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- ===== Bottom nav ===== -->
+    <nav class="cs-pager">
+      <div class="container">
+        <a href="../index.html#projects"><span aria-hidden="true">&larr;</span> All projects</a>
+        <a href="learning-game.html">Next case study <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-badge">KH</span>
+        <span class="logo-text">Kenny Haas</span>
+      </a>
+      <p>&copy; <span id="year"></span> Kenny Haas</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script>
+    // Case-study section reveals on scroll
+    (function () {
+      var els = document.querySelectorAll(".cs-reveal");
+      if (!els.length) return;
+      if (!("IntersectionObserver" in window)) {
+        Array.prototype.forEach.call(els, function (el) { el.classList.add("is-visible"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add("is-visible"); obs.unobserve(en.target); }
+        });
+      }, { threshold: 0.12 });
+      Array.prototype.forEach.call(els, function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>

@@ -30,7 +30,14 @@
     [document.querySelector(".hero .hero-status"), 0.29],
     [document.querySelector("#about .section-head"), 0.4],
     [document.querySelector(".about-photo"), 0.44],
-    [document.querySelector(".about-body"), 0.44]
+    [document.querySelector(".about-body"), 0.44],
+    // case-study pages: the .cs-hero block gets the same staggered intro
+    [document.querySelector(".cs-hero .hero-bg"), 0.04],
+    [document.querySelector(".cs-hero .cs-back"), 0.04],
+    [document.querySelector(".cs-hero .cs-eyebrow"), 0.08],
+    [document.querySelector(".cs-hero h1"), 0.14],
+    [document.querySelector(".cs-hero .cs-lede"), 0.22],
+    [document.querySelector(".cs-hero .cs-meta"), 0.3]
   ].filter(function (s) { return s[0]; });
 
   requestAnimationFrame(function () {
@@ -126,14 +133,13 @@
     sections.forEach(function (s) { spy.observe(s); });
   }
 
-  /* ---- Scroll reveal (About, Projects, Resume, Contact are handled separately) ---- */
+  /* ---- Scroll reveal (About, Projects, Contact are handled separately) ---- */
   var revealTargets = Array.prototype.filter.call(
     document.querySelectorAll(
-      ".about-grid, .project-card, .resume-panel, .contact-item, .contact-intro, .section-head, .site-footer"
+      ".about-grid, .project-card, .contact-item, .contact-intro, .contact-resume, .tl-item, .tl-resume, .tl-education, .section-head, .site-footer"
     ),
     function (el) {
       return !el.closest("#about") &&
-        !el.closest("#resume") &&
         !el.classList.contains("project-card") &&
         !el.classList.contains("contact-item");
     }
@@ -225,42 +231,6 @@
     Array.prototype.forEach.call(skillChips, function (li) { li.classList.add("is-visible"); });
   }
 
-  /* ---- Resume: the copy reveals, then the button follows shortly after ---- */
-  var resumePanel = document.querySelector(".resume-panel");
-  if (resumePanel) {
-    var resumeParts = [
-      resumePanel.querySelector(".resume-copy"),
-      resumePanel.querySelector(".btn-lg")
-    ].filter(Boolean);
-    resumeParts.forEach(function (el, i) {
-      el.classList.add("reveal");
-      el.style.transitionDelay = (i * 0.28).toFixed(2) + "s";
-    });
-
-    if ("IntersectionObserver" in window) {
-      var resumeObserver = new IntersectionObserver(
-        function (entries, obs) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              resumeParts.forEach(function (el) { el.classList.add("is-visible"); });
-              obs.unobserve(entry.target);
-              window.setTimeout(function () {
-                resumeParts.forEach(function (el) { el.style.transitionDelay = ""; });
-              }, 1500);
-            }
-          });
-        },
-        { threshold: 0.2 }
-      );
-      resumeObserver.observe(resumePanel);
-    } else {
-      resumeParts.forEach(function (el) {
-        el.classList.add("is-visible");
-        el.style.transitionDelay = "";
-      });
-    }
-  }
-
   /* ---- Contact cards: stagger reveal when scrolled into view ---- */
   var contactItems = document.querySelectorAll(".contact-item");
   Array.prototype.forEach.call(contactItems, function (item, i) {
@@ -287,6 +257,35 @@
     Array.prototype.forEach.call(contactItems, function (item) {
       item.classList.add("is-visible");
       item.style.transitionDelay = "";
+    });
+  }
+
+  /* ---- Testimonials: stagger reveal when scrolled into view ---- */
+  var quoteCards = document.querySelectorAll(".quote-card");
+  Array.prototype.forEach.call(quoteCards, function (card, i) {
+    card.classList.add("reveal");
+    card.style.transitionDelay = (i * 0.12).toFixed(2) + "s";
+  });
+
+  if ("IntersectionObserver" in window && quoteCards.length) {
+    var quoteObserver = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            el.classList.add("is-visible");
+            obs.unobserve(el);
+            window.setTimeout(function () { el.style.transitionDelay = ""; }, 1000);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    Array.prototype.forEach.call(quoteCards, function (card) { quoteObserver.observe(card); });
+  } else {
+    Array.prototype.forEach.call(quoteCards, function (card) {
+      card.classList.add("is-visible");
+      card.style.transitionDelay = "";
     });
   }
 
@@ -366,7 +365,7 @@
       if (card && card.querySelector("h3")) {
         return card.querySelector("h3").textContent.trim() + " — Case Study";
       }
-      if (link.closest("#resume")) return "Resume — Kenny Haas";
+      if (link.getAttribute("href").indexOf("resume") !== -1) return "Résumé — Kenny Haas";
       return "Document";
     }
 
