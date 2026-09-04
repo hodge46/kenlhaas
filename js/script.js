@@ -41,17 +41,21 @@
     [document.querySelector(".cs-hero .cs-cta"), 0.37]
   ].filter(function (s) { return s[0]; });
 
-  requestAnimationFrame(function () {
+  // Main-page intro (header, hero, about) already played this session — CSS shows it instantly, nothing to animate.
+  if (!document.documentElement.classList.contains("intro-done")) {
+    try { sessionStorage.setItem("khIntroPlayed", "1"); } catch (e) {}
     requestAnimationFrame(function () {
-      introSteps.forEach(function (s) {
-        s[0].style.transitionDelay = s[1] + "s";
-        s[0].classList.add("intro-in");
+      requestAnimationFrame(function () {
+        introSteps.forEach(function (s) {
+          s[0].style.transitionDelay = s[1] + "s";
+          s[0].classList.add("intro-in");
+        });
+        window.setTimeout(function () {
+          introSteps.forEach(function (s) { s[0].style.transitionDelay = ""; });
+        }, 2400);
       });
-      window.setTimeout(function () {
-        introSteps.forEach(function (s) { s[0].style.transitionDelay = ""; });
-      }, 2400);
     });
-  });
+  }
 
   /* ---- Dark / light theme toggle ---- */
   var themeToggle = document.getElementById("themeToggle");

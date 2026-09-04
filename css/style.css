@@ -477,10 +477,8 @@ ul { list-style: none; }
 .about-body p + p { margin-top: 14px; }
 
 .skills { margin-top: 30px; }
-.skills h4 {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.skills-group + .skills-group { margin-top: 28px; }
+.skills-group-title {
   font-family: var(--font-head);
   font-size: 1rem;
   font-weight: 700;
@@ -489,14 +487,6 @@ ul { list-style: none; }
   color: var(--brand);
   margin-bottom: 18px;
 }
-.skills-icon {
-  display: grid;
-  place-items: center;
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  background: var(--brand-100);
-}
-.skills-icon svg { width: 16px; height: 16px; }
 .skills-list {
   columns: 3;
   column-gap: 28px;
@@ -948,6 +938,11 @@ ul { list-style: none; }
   opacity: 1;
   transform: none;
 }
+/* Case-study pages: the header is already familiar from the main page — show it immediately, no slide-in */
+body:has(.cs-main) .site-header {
+  opacity: 1;
+  transform: none;
+}
 .js .hero .eyebrow,
 .js .hero .hero-name,
 .js .hero .hero-roles,
@@ -982,6 +977,21 @@ ul { list-style: none; }
 .js #about .section-head.intro-in,
 .js .about-photo.intro-in,
 .js .about-body.intro-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Repeat visits to the main page within the same session: the intro already
+   played once, so show the header/hero/about immediately, no re-animation */
+html.intro-done .site-header,
+html.intro-done .hero .eyebrow,
+html.intro-done .hero .hero-name,
+html.intro-done .hero .hero-roles,
+html.intro-done .hero .hero-status,
+html.intro-done .hero .hero-bg,
+html.intro-done #about .section-head,
+html.intro-done .about-photo,
+html.intro-done .about-body {
   opacity: 1;
   transform: none;
 }
@@ -1285,6 +1295,18 @@ body.pdf-open { overflow: hidden; }
 .cs-cta { margin-top: 28px; }
 .cs-cta svg { width: 15px; height: 15px; }
 
+.cs-end-cta {
+  text-align: center;
+  padding: 12px 0 40px;
+}
+.cs-end-cta p {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.cs-end-cta .cs-cta { margin-top: 0; }
+
 .cs-body { max-width: 780px; margin-inline: auto; }
 
 .cs-section { padding: 44px 0; }
@@ -1323,7 +1345,7 @@ body.pdf-open { overflow: hidden; }
 .cs-tech p { font-size: .87rem; line-height: 1.6; color: var(--body); }
 @media (max-width: 600px) { .cs-tech { grid-template-columns: 1fr; } }
 
-.cs-figure { margin: 26px 0 4px; }
+.cs-figure { margin: 26px 0 28px; }
 .cs-img {
   display: block;
   width: 100%;
@@ -1432,6 +1454,16 @@ body.pdf-open { overflow: hidden; }
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
+
+/* Inline citation-style links within case-study body copy */
+.cs-section a:not(.btn) {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-color: var(--brand-light);
+  text-underline-offset: 2px;
+  transition: color .18s var(--ease);
+}
+.cs-section a:not(.btn):hover { color: var(--brand-dark); }
 
 .cs-quote {
   border-left: 3px solid var(--brand);
