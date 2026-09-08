@@ -1358,6 +1358,10 @@ body.pdf-open { overflow: hidden; }
   max-width: 480px;
   margin-inline: auto;
 }
+.cs-img--md {
+  max-width: 660px;
+  margin-inline: auto;
+}
 /* when a real image is present, hide the placeholder box... */
 .cs-figure:has(.cs-img) .cs-shot { display: none; }
 /* ...unless the image failed to load */
