@@ -168,7 +168,15 @@ ul { list-style: none; }
   height: 74px;
 }
 
-.logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-head); }
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  transition: transform .18s var(--ease);
+}
+.logo:hover { transform: translateY(-2px); }
+.logo:active { transform: translateY(0) scale(.98); }
 .logo-badge {
   display: grid;
   place-items: center;
@@ -835,14 +843,25 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 26px;
+  margin-top: 18px;
+  padding: 8px 0;
   font-size: .92rem;
   font-weight: 600;
   color: var(--brand);
-  transition: gap .18s var(--ease), color .18s var(--ease);
 }
 .contact-resume svg { width: 16px; height: 16px; }
-.contact-resume:hover { gap: 12px; color: var(--brand-dark); }
+/* transform-based slide (smoother than animating flex `gap`); scoped so it
+   beats the .reveal class transition that JS adds to this link */
+.section-contact .contact-resume {
+  transition: transform .2s var(--ease), color .2s var(--ease);
+}
+.section-contact .contact-resume.reveal:not(.is-visible) {
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+.section-contact .contact-resume:hover {
+  transform: translateX(4px);
+  color: var(--brand-dark);
+}
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1016,6 +1035,22 @@ html.intro-done .about-body {
   opacity: 1;
   transform: none;
 }
+/* Once the hero intro is done, the back link uses a snappy transform slide on
+   hover (specificity here beats the .intro-in transform reset above);
+   it points back, so it nudges left */
+.js .cs-hero .cs-back.intro-in {
+  transition: transform .2s var(--ease), color .2s var(--ease);
+}
+.js .cs-hero .cs-back:hover {
+  transform: translateX(-4px);
+  color: var(--brand-dark);
+}
+/* Restore the CTA button's hover lift past the .intro-in transform reset */
+.js .cs-hero .cs-cta.intro-in {
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
+}
+.js .cs-hero .cs-cta:hover { transform: translateY(-2px); }
+.js .cs-hero .cs-cta:active { transform: translateY(0) scale(.97); }
 
 /* ---------- In-page PDF viewer ---------- */
 body.pdf-open { overflow: hidden; }
@@ -1227,6 +1262,8 @@ body.pdf-open { overflow: hidden; }
 }
 @media (max-width: 780px) {
   .cs-hero .hero-deco { width: min(64vw, 320px); top: -40px; right: -34px; }
+  /* the dot grid sits right under the back link at phone width — drop it, the rings carry the decoration */
+  .cs-hero .dot-grid-hero { display: none; }
 }
 .cs-back {
   display: inline-flex;
@@ -1238,9 +1275,9 @@ body.pdf-open { overflow: hidden; }
   text-transform: uppercase;
   color: var(--brand);
   margin-bottom: 24px;
-  transition: gap .18s var(--ease), color .18s var(--ease);
+  transition: transform .2s var(--ease), color .2s var(--ease);
 }
-.cs-back:hover { gap: 13px; color: var(--brand-dark); }
+.cs-back:hover { transform: translateX(-4px); color: var(--brand-dark); }
 .cs-eyebrow {
   font-size: .7rem;
   font-weight: 700;
@@ -1429,6 +1466,8 @@ body.pdf-open { overflow: hidden; }
 }
 @media (max-width: 600px) {
   .cs-flow { flex-direction: column; gap: 26px; }
+  /* stacked: let each step shrink to its content instead of the 110px flex-basis */
+  .cs-flow .cs-step { flex: 0 0 auto; }
   .cs-flow .cs-step:not(:last-child)::after {
     content: "\2193";
     right: 50%;
@@ -1498,9 +1537,11 @@ body.pdf-open { overflow: hidden; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: gap .18s var(--ease), color .18s var(--ease);
+  transition: transform .2s var(--ease), color .2s var(--ease);
 }
-.cs-pager a:hover { color: var(--brand-dark); }
+.cs-pager a:hover { transform: translateX(4px); color: var(--brand-dark); }
+/* the "All projects" link points back, so it nudges left */
+.cs-pager a:first-child:hover { transform: translateX(-4px); }
 
 .cs-reveal {
   opacity: 0;
