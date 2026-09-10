@@ -173,6 +173,7 @@ ul { list-style: none; }
   align-items: center;
   gap: 10px;
   font-family: var(--font-head);
+  flex-shrink: 0;
   transition: transform .18s var(--ease);
 }
 .logo:hover { transform: translateY(-2px); }
@@ -188,7 +189,7 @@ ul { list-style: none; }
   font-size: .95rem;
   letter-spacing: .5px;
 }
-.logo-text { font-weight: 700; font-size: 1.15rem; color: var(--ink); }
+.logo-text { font-weight: 700; font-size: 1.15rem; color: var(--ink); white-space: nowrap; }
 
 .main-nav {
   display: flex;
@@ -218,13 +219,22 @@ ul { list-style: none; }
 .main-nav a:hover::after,
 .main-nav a.is-active::after { width: 100%; }
 
+/* Below ~1120px the full desktop header runs out of room and the "Kenny Haas"
+   logo starts wrapping. Drop the CTA (Contact is still in the nav) and tighten
+   the header/nav spacing so it stays on one line down to the mobile breakpoint. */
+@media (max-width: 1120px) {
+  .header-cta { display: none; }
+  .header-inner { gap: 16px; }
+  .main-nav { gap: 22px; }
+}
+
 .header-cta { flex-shrink: 0; }
 
 .header-social {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
   color: var(--ink-soft);
   flex-shrink: 0;
@@ -236,8 +246,8 @@ ul { list-style: none; }
 .theme-toggle {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border: none;
   border-radius: 10px;
   background: transparent;
@@ -332,6 +342,13 @@ ul { list-style: none; }
   .hero-deco { top: -24px; right: -30px; width: min(64vw, 360px); }
   .contact-deco { right: -30px; bottom: -40px; width: min(64vw, 360px); }
   .projects-deco { left: -50px; top: -30px; width: min(66vw, 360px); }
+  /* on phones these small floating dots crowd the headings and read like stray punctuation */
+  .hero-deco .hd-accent,
+  .hero-deco .hd-dot-lt,
+  .projects-deco .pd-accent,
+  .projects-deco .pd-dot-lt,
+  .contact-deco .cd-accent,
+  .contact-deco .cd-dot-lt { display: none; }
 }
 
 /* ---------- Hero ---------- */
@@ -354,7 +371,7 @@ ul { list-style: none; }
   font-family: var(--font-head);
   font-weight: 800;
   color: var(--ink);
-  font-size: clamp(3.4rem, 11vw, 8.5rem);
+  font-size: clamp(2.4rem, 11vw, 8.5rem);
   line-height: .98;
   letter-spacing: -.02em;
 }
@@ -736,7 +753,7 @@ ul { list-style: none; }
 .project-result-label {
   display: block;
   margin-bottom: 3px;
-  font-size: .66rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -1177,8 +1194,9 @@ body.pdf-open { overflow: hidden; }
   .photo-frame { width: 240px; height: 240px; }
 }
 
-@media (max-width: 780px) {
-  .header-cta { display: none; }
+/* Header collapses to the hamburger menu earlier than the page layout does, so
+   the desktop nav never gets cramped enough to wrap the "Kenny Haas" logo. */
+@media (max-width: 900px) {
   .nav-toggle { display: flex; }
   .header-social { margin-left: auto; }
   .main-nav {
@@ -1199,7 +1217,9 @@ body.pdf-open { overflow: hidden; }
   .main-nav a { padding: 14px 0; border-bottom: 1px solid var(--line); width: 100%; }
   .main-nav a:last-child { border-bottom: none; }
   .main-nav a::after { display: none; }
+}
 
+@media (max-width: 780px) {
   .section { padding: 60px 0; }
   .hero { padding: 64px 0 78px; }
 
