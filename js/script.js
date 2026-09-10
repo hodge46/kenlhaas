@@ -100,14 +100,31 @@
 
   /* ---- Mobile nav toggle ---- */
   if (navToggle && nav) {
-    navToggle.addEventListener("click", function () {
+    var closeNav = function () {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+
+    navToggle.addEventListener("click", function (e) {
+      e.stopPropagation();
       var open = nav.classList.toggle("is-open");
       navToggle.setAttribute("aria-expanded", String(open));
     });
+
     nav.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        nav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
+      if (e.target.tagName === "A") closeNav();
+    });
+
+    // tap anywhere outside the open menu, or press Escape, to close it
+    document.addEventListener("click", function (e) {
+      if (nav.classList.contains("is-open") && !nav.contains(e.target) && !navToggle.contains(e.target)) {
+        closeNav();
+      }
+    });
+    document.addEventListener("keydown", function (e) {
+      if ((e.key === "Escape" || e.key === "Esc") && nav.classList.contains("is-open")) {
+        closeNav();
+        navToggle.focus();
       }
     });
   }
